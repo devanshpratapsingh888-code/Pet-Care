@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { PawPrint, Dog, Cat, Bird, Fish } from 'lucide-react';
 import { CATEGORIES } from '../data/mockData';
 import './CategoryRail.css';
