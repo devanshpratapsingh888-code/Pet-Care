@@ -15,12 +15,15 @@ import MyOrders from './pages/MyOrders';
 
 import ProductDetails from './pages/ProductDetails';
 
+import ScrollToTop from './components/ScrollToTop';
+
 function App() {
   return (
     <ToastProvider>
       <AuthProvider>
         <CartProvider>
           <Router>
+            <ScrollToTop />
             <div className="app">
               <Navbar />
               <CartSidebar />
