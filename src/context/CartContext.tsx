@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 
 export interface CartItem {
@@ -24,8 +24,15 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-    const [items, setItems] = useState<CartItem[]>([]);
+    const [items, setItems] = useState<CartItem[]>(() => {
+        const saved = localStorage.getItem('cartItems');
+        return saved ? JSON.parse(saved) : [];
+    });
     const [isCartOpen, setIsCartOpen] = useState(false);
+
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(items));
+    }, [items]);
 
     const clearCart = () => {
         setItems([]);

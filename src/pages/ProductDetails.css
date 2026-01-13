@@ -1,0 +1,116 @@
+.product-details-page {
+    padding: 2rem 0 4rem;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--primary-color, #E46D29);
+}
+
+.product-details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .product-details-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.pd-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.pd-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.pd-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color, #E46D29);
+    margin-bottom: 2rem;
+}
+
+.pd-description {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+.pd-add-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.pd-add-btn:hover {
+    background-color: var(--primary-color, #E46D29);
+    transform: translateY(-2px);
+}
+
+.related-products {
+    margin-top: 5rem;
+}
+
+.related-products h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 640px) {
+    .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .related-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

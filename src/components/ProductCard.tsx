@@ -14,27 +14,45 @@ interface ProductCardProps {
     };
 }
 
+import { Link } from 'react-router-dom';
+
 const ProductCard = ({ product }: ProductCardProps) => {
     const { addToCart } = useCart();
     const { showToast } = useToast();
 
-    const handleAddToCart = () => {
+    const handleAddToCart = (e: React.MouseEvent) => {
+        e.preventDefault(); // Prevent navigating to details page when clicking add to cart
         addToCart(product);
         showToast(`Added ${product.name} to cart!`, 'success');
     };
 
     return (
         <div className="product-card">
+            {/* Overlay Link - Z-Index 5 to sit above image/content but below interactions */}
+            <Link
+                to={`/product/${product.id}`}
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    zIndex: 5,
+                    cursor: 'pointer'
+                }}
+            />
+
             <div className="product-image-wrapper">
                 <img src={product.image} alt={product.name} className="product-image" />
                 <button
                     className="add-to-cart-btn"
                     aria-label="Add to cart"
                     onClick={handleAddToCart}
+                    style={{ zIndex: 10, position: 'absolute' }} // Explicitly > Link
                 >
                     <ShoppingCart size={18} />
                 </button>
-                <div className="product-rating">
+                <div className="product-rating" style={{ zIndex: 10, position: 'absolute' }}>
                     <Star size={12} fill="#FFB500" stroke="none" />
                     <span>{product.rating}</span>
                 </div>

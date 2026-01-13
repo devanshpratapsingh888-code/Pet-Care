@@ -10,9 +10,10 @@ import CartSidebar from './components/CartSidebar';
 import { CartProvider } from './context/CartContext';
 import { ToastProvider } from './context/ToastContext';
 
-import LoginOverlay from './components/LoginOverlay';
 import { AuthProvider } from './context/AuthContext';
 import MyOrders from './pages/MyOrders';
+
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/shop" element={<Shop />} />
+                <Route path="/product/:id" element={<ProductDetails />} />
                 <Route path="/sale" element={<Sale />} />
                 <Route path="/universe" element={<Universe />} />
                 <Route path="/checkout" element={<Checkout />} />
